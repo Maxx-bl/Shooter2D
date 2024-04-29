@@ -1,0 +1,9 @@
+C:\Users\Max\Projects\Shooter2D\.mono\temp\bin\Debug\Shooter 2D.dll
+C:\Users\Max\Projects\Shooter2D\.mono\temp\bin\Debug\Shooter 2D.pdb
+C:\Users\Max\Projects\Shooter2D\.mono\temp\obj\Debug\Shooter 2D.csproj.AssemblyReference.cache
+C:\Users\Max\Projects\Shooter2D\.mono\temp\obj\Debug\Shooter 2D.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Max\Projects\Shooter2D\.mono\temp\obj\Debug\Shooter 2D.AssemblyInfoInputs.cache
+C:\Users\Max\Projects\Shooter2D\.mono\temp\obj\Debug\Shooter 2D.AssemblyInfo.cs
+C:\Users\Max\Projects\Shooter2D\.mono\temp\obj\Debug\Shooter 2D.csproj.CoreCompileInputs.cache
+C:\Users\Max\Projects\Shooter2D\.mono\temp\obj\Debug\Shooter 2D.dll
+C:\Users\Max\Projects\Shooter2D\.mono\temp\obj\Debug\Shooter 2D.pdb
