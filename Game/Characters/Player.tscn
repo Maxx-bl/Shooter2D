@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/player.png" type="Texture" id=1]
 [ext_resource path="res://Game/Characters/Player.cs" type="Script" id=2]
 [ext_resource path="res://Game/Characters/Movement.cs" type="Script" id=3]
 [ext_resource path="res://Game/Characters/Health.cs" type="Script" id=4]
+[ext_resource path="res://Game/Characters/Cannon.cs" type="Script" id=5]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -22,3 +23,7 @@ script = ExtResource( 4 )
 
 [node name="Movement" type="Node2D" parent="."]
 script = ExtResource( 3 )
+
+[node name="Cannon" type="Node2D" parent="."]
+position = Vector2( 25, 0 )
+script = ExtResource( 5 )
