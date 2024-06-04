@@ -5,22 +5,23 @@ public class GameManager : Node2D
 {
 
     Node2D SpawnPoint;
-    Node2D Nav;
+    TileMap TileMap;
 
     public override void _Ready()
     {
-        Nav = GetNode<Node2D>("Navigation2D");
         InstantiateMap();
+        TileMap = GetNode<TileMap>("TileMap");
 
-        SpawnPoint = GetNode<Node2D>("Navigation2D/TileMap/Spawns/P1");
+        SpawnPoint = GetNode<Node2D>("TileMap/Spawns/P1");
         InstantiatePlayer();
+
     }
 
     void InstantiateMap()
     {
         PackedScene mapScene = GD.Load<PackedScene>("res://Game/Maps/SoloMode.tscn");
         TileMap map = mapScene.Instance<TileMap>();
-        Nav.AddChild(map);
+        AddChild(map);
     }
 
     void InstantiatePlayer()
@@ -28,7 +29,8 @@ public class GameManager : Node2D
         PackedScene playerScene = GD.Load<PackedScene>("res://Game/Characters/Player/Player.tscn");
         KinematicBody2D player = playerScene.Instance<KinematicBody2D>();
         player.Position = SpawnPoint.Position;
-        AddChild(player);
+        TileMap.AddChild(player);
     }
+
 
 }

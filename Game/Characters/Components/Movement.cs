@@ -3,7 +3,7 @@ using System;
 
 public class Movement : Node2D
 {
-    public float Speed { get; set; } = 250;
+    [Export] public float Speed { get; set; }
 
     public Vector2 GetInput()
     {

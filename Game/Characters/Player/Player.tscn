@@ -1,15 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Game/Characters/Player/Player.cs" type="Script" id=1]
-[ext_resource path="res://Game/Characters/Player/Movement.cs" type="Script" id=2]
-[ext_resource path="res://Game/Characters/Player/Health.cs" type="Script" id=3]
-[ext_resource path="res://Game/Characters/Player/Cannon.cs" type="Script" id=4]
+[ext_resource path="res://Game/Characters/Components/Movement.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Characters/Components/Health.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Characters/Player/Cannon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/player.png" type="Texture" id=5]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.690196, 1, 0, 1 )
-
-[sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -23,30 +18,13 @@ rotation = 1.5708
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 5 )
 
-[node name="Health" type="Node2D" parent="."]
-script = ExtResource( 3 )
+[node name="HealthComponent" parent="." instance=ExtResource( 3 )]
+DefaultHP = 100.0
 
-[node name="Movement" type="Node2D" parent="."]
-script = ExtResource( 2 )
+[node name="MovementComponent" parent="." instance=ExtResource( 2 )]
+Speed = 250.0
 
-[node name="Cannon" type="Node2D" parent="."]
-position = Vector2( 45, 0 )
-script = ExtResource( 4 )
-
-[node name="Reload" type="ProgressBar" parent="Cannon"]
-margin_left = -72.0
-margin_top = -2.0
-margin_right = -21.0
-margin_bottom = 2.0
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
-max_value = 0.5
-value = 0.1
-percent_visible = false
-
-[node name="Timer" type="Timer" parent="Cannon/Reload"]
-wait_time = 0.5
-one_shot = true
+[node name="Cannon" parent="." instance=ExtResource( 4 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -54,5 +32,3 @@ limit_left = 0
 limit_top = 0
 smoothing_enabled = true
 smoothing_speed = 3.0
-
-[connection signal="timeout" from="Cannon/Reload/Timer" to="Cannon" method="_on_Timer_timeout"]

@@ -4,7 +4,7 @@ using System;
 public class Health : Node2D
 {
 
-    public float DefaultHP { get; } = 100;
+    [Export] public float DefaultHP { get; set; }
 
     public float HP { get; set; }
 
