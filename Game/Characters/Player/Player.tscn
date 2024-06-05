@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game/Characters/Player/Player.cs" type="Script" id=1]
-[ext_resource path="res://Game/Characters/Components/Movement.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Game/Characters/Components/Health.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Game/Characters/Player/Cannon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Characters/Components/Movement/Movement.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Characters/Components/Health/Health.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Characters/Player/Cannon/Cannon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/player.png" type="Texture" id=5]
+[ext_resource path="res://Game/Misc/Damages/Damages.tscn" type="PackedScene" id=6]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["Player", "Targetable"]]
 script = ExtResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -18,13 +19,16 @@ rotation = 1.5708
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 5 )
 
-[node name="HealthComponent" parent="." instance=ExtResource( 3 )]
+[node name="Health" parent="." instance=ExtResource( 3 )]
 DefaultHP = 100.0
 
-[node name="MovementComponent" parent="." instance=ExtResource( 2 )]
+[node name="Movement" parent="." instance=ExtResource( 2 )]
 Speed = 250.0
 
 [node name="Cannon" parent="." instance=ExtResource( 4 )]
+
+[node name="Damages" parent="." instance=ExtResource( 6 )]
+Damage = 25.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

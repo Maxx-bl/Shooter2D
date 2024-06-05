@@ -19,10 +19,9 @@ public class Bot : KinematicBody2D
 
     public override void _PhysicsProcess(float delta)
     {
-        
+        LookAt(Target.Position);
         Vector2 MoveDirection = Position.DirectionTo(Nav.GetTargetLocation());
         Velocity = MoveDirection * Speed;
-        LookAt(MoveDirection);
         Nav.SetVelocity(Velocity);
         MoveAndSlide(Velocity);
     }

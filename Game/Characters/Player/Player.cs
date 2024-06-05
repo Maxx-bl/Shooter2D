@@ -8,7 +8,7 @@ public class Player : KinematicBody2D
 
     public override void _Ready()
     {
-        movement = GetNode<Movement>("MovementComponent");
+        movement = GetNode<Movement>("Movement");
     }
 
     public override void _PhysicsProcess(float delta)

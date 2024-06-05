@@ -2,12 +2,12 @@
 
 [ext_resource path="res://Assets/Bot.png" type="Texture" id=1]
 [ext_resource path="res://Game/Characters/Bot/Bot.cs" type="Script" id=2]
-[ext_resource path="res://Game/Characters/Components/Health.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/Characters/Components/Health/Health.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.9706, 16.9706 )
 
-[node name="Bot" type="KinematicBody2D"]
+[node name="Bot" type="KinematicBody2D" groups=["Bot", "Targetable"]]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
