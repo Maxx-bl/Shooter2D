@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm1sbyew8yky7"]
+
+[ext_resource type="Script" path="res://Game/Characters/Bots/Bot.cs" id="1_5bbu7"]
+[ext_resource type="Texture2D" uid="uid://dckfcvak06uyn" path="res://Assets/Bot.png" id="1_wwdud"]
+[ext_resource type="PackedScene" uid="uid://sfxq7ujdaido" path="res://Game/Characters/Components/Health/Health.tscn" id="2_6d0t2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4xfx"]
+size = Vector2(33.9411, 33.9411)
+
+[node name="Bot" type="CharacterBody2D" groups=["Bot", "Targetable"]]
+script = ExtResource("1_5bbu7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 0.785398
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_k4xfx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("1_wwdud")
+
+[node name="Health" parent="." instance=ExtResource("2_6d0t2")]
+DefaultHP = 80.0

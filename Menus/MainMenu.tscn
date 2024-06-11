@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnb1yc3ly2ptq"]
+
+[ext_resource type="Script" path="res://Menus/MainMenu.cs" id="1_bj5q3"]
+[ext_resource type="PackedScene" uid="uid://c2m5cyekkqmik" path="res://Menus/Misc/Button.tscn" id="2_d4rmm"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bj5q3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 300
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_d4rmm")]
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

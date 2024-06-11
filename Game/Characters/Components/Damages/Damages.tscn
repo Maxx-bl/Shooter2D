@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp7gdwwgbal8h"]
+
+[ext_resource type="Script" path="res://Game/Characters/Components/Damages/Damages.cs" id="1_typxe"]
+
+[node name="Damages" type="Node2D"]
+script = ExtResource("1_typxe")
