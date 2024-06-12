@@ -1,0 +1,110 @@
+[gd_scene load_steps=12 format=3 uid="uid://cavrmxvjvvf4v"]
+
+[ext_resource type="Texture2D" uid="uid://cjp8b0rdujfba" path="res://Assets/Backgrounds/loading.png" id="1_e8h7h"]
+[ext_resource type="Script" path="res://Menus/Loading/Loading.cs" id="1_my6bp"]
+[ext_resource type="Texture2D" uid="uid://d01r8vmynjc54" path="res://Assets/Loading/Loading Screen.png" id="2_elan5"]
+[ext_resource type="FontFile" uid="uid://b766v3c5y355g" path="res://Assets/Font/Future Now.ttf" id="3_v4ner"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwppm"]
+atlas = ExtResource("2_elan5")
+region = Rect2(0, 0, 40, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuwer"]
+atlas = ExtResource("2_elan5")
+region = Rect2(40, 0, 40, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie6u8"]
+atlas = ExtResource("2_elan5")
+region = Rect2(80, 0, 40, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axj7j"]
+atlas = ExtResource("2_elan5")
+region = Rect2(120, 0, 40, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsmkp"]
+atlas = ExtResource("2_elan5")
+region = Rect2(160, 0, 40, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_biyp8"]
+atlas = ExtResource("2_elan5")
+region = Rect2(200, 0, 40, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mkicv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwppm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuwer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie6u8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axj7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsmkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_biyp8")
+}],
+"loop": true,
+"name": &"loading",
+"speed": 16.0
+}]
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_my6bp")
+
+[node name="TextEdit" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("1_e8h7h")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 760
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(376, 345)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_mkicv")
+animation = &"loading"
+autoplay = "loading"
+frame = 3
+frame_progress = 0.791755
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_v4ner")
+theme_override_font_sizes/font_size = 90
+text = "Loading"
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnb1yc3ly2ptq"]
+[gd_scene load_steps=4 format=3 uid="uid://dnb1yc3ly2ptq"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.cs" id="1_bj5q3"]
 [ext_resource type="PackedScene" uid="uid://c2m5cyekkqmik" path="res://Menus/Misc/Button.tscn" id="2_d4rmm"]
+[ext_resource type="Texture2D" uid="uid://b2bd3aduofgkh" path="res://Assets/Backgrounds/space.jpg" id="3_1n8fi"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,8 +13,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bj5q3")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_left = -665.0
+offset_top = -15.0
+offset_right = 5835.0
+offset_bottom = 2874.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_1n8fi")
+
+[node name="Buttons" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Buttons"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,10 +38,15 @@ theme_override_constants/margin_top = 300
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Play" parent="Buttons/MarginContainer/VBoxContainer" instance=ExtResource("2_d4rmm")]
 layout_mode = 2
 
-[node name="Play" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_d4rmm")]
+[node name="Quit" parent="Buttons/MarginContainer/VBoxContainer" instance=ExtResource("2_d4rmm")]
 layout_mode = 2
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Buttons/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
