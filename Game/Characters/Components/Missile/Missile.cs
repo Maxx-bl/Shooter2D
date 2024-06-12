@@ -3,7 +3,7 @@ using System;
 
 public partial class Missile : CharacterBody2D
 {
-	public float Speed { get; set; } = 800;
+	public float Speed { get; set; }
     public Vector2 Target { get; set; }
     public Vector2 Cannon { get; set; }
     public Vector2 Direction { get; set; }
@@ -12,7 +12,7 @@ public partial class Missile : CharacterBody2D
     public override void _Ready()
     {
         Damages = GetNode<Damages>("Damages");
-
+        Speed = GetNode<Speed>("Speed").MoveSpeed;
         Direction = Target - Cannon;
         Rotation = Direction.Angle();
     }

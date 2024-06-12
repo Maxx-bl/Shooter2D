@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmfi7qta8rhld"]
+[gd_scene load_steps=6 format=3 uid="uid://cmfi7qta8rhld"]
 
 [ext_resource type="Texture2D" uid="uid://c6s2jod1n0kwf" path="res://Assets/Missile.png" id="1_8o4d5"]
 [ext_resource type="Script" path="res://Game/Characters/Components/Missile/Missile.cs" id="1_n1xuf"]
 [ext_resource type="PackedScene" uid="uid://cp7gdwwgbal8h" path="res://Game/Characters/Components/Damages/Damages.tscn" id="2_5c3wp"]
+[ext_resource type="PackedScene" uid="uid://cl1jd3pd7j4l4" path="res://Game/Characters/Components/Speed/Speed.tscn" id="4_87ei8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yx7s0"]
 size = Vector2(38, 20)
 
 [node name="Missile" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_n1xuf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,10 +18,15 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_8o4d5")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_yx7s0")
 
 [node name="Damages" parent="." instance=ExtResource("2_5c3wp")]
+
+[node name="Speed" parent="." instance=ExtResource("4_87ei8")]
+MoveSpeed = 800.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

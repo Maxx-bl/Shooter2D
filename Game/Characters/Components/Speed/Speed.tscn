@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl1jd3pd7j4l4"]
+
+[ext_resource type="Script" path="res://Game/Characters/Components/Speed/Speed.cs" id="1_wl6q0"]
+
+[node name="Speed" type="Node2D"]
+script = ExtResource("1_wl6q0")

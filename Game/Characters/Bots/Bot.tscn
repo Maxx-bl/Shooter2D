@@ -1,23 +1,84 @@
-[gd_scene load_steps=5 format=3 uid="uid://bm1sbyew8yky7"]
+[gd_scene load_steps=10 format=3 uid="uid://bm1sbyew8yky7"]
 
 [ext_resource type="Script" path="res://Game/Characters/Bots/Bot.cs" id="1_5bbu7"]
 [ext_resource type="Texture2D" uid="uid://dckfcvak06uyn" path="res://Assets/Bot.png" id="1_wwdud"]
 [ext_resource type="PackedScene" uid="uid://sfxq7ujdaido" path="res://Game/Characters/Components/Health/Health.tscn" id="2_6d0t2"]
+[ext_resource type="PackedScene" uid="uid://cp7gdwwgbal8h" path="res://Game/Characters/Components/Damages/Damages.tscn" id="4_2wk2s"]
+[ext_resource type="PackedScene" uid="uid://cl1jd3pd7j4l4" path="res://Game/Characters/Components/Speed/Speed.tscn" id="5_fj48p"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4xfx"]
-size = Vector2(33.9411, 33.9411)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymtor"]
+radius = 16.9706
 
-[node name="Bot" type="CharacterBody2D" groups=["Bot", "Targetable"]]
+[sub_resource type="Animation" id="Animation_8w8rn"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_8g7re"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q1uhf"]
+_data = {
+"RESET": SubResource("Animation_8g7re"),
+"default": SubResource("Animation_8w8rn")
+}
+
+[node name="Bot" type="CharacterBody2D" node_paths=PackedStringArray("nav") groups=["Bot", "Targetable"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_5bbu7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 0.785398
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_k4xfx")
+nav = NodePath("NavigationAgent2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("1_wwdud")
 
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+rotation = 0.785398
+shape = SubResource("CircleShape2D_ymtor")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
 [node name="Health" parent="." instance=ExtResource("2_6d0t2")]
 DefaultHP = 80.0
+
+[node name="Damages" parent="." instance=ExtResource("4_2wk2s")]
+Damage = 20.0
+
+[node name="Speed" parent="." instance=ExtResource("5_fj48p")]
+MoveSpeed = 150.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_q1uhf")
+}
+autoplay = "default"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

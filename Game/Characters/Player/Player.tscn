@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://djitgje1ocape"]
+[gd_scene load_steps=8 format=3 uid="uid://djitgje1ocape"]
 
 [ext_resource type="Script" path="res://Game/Characters/Player/Player.cs" id="1_lfapk"]
 [ext_resource type="Texture2D" uid="uid://bkdm5okgwifnt" path="res://Assets/player.png" id="1_r2kfm"]
@@ -6,18 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://hm4kavcgdcv" path="res://Game/Characters/Player/Movement/Movement.tscn" id="3_585ko"]
 [ext_resource type="PackedScene" uid="uid://b7hiysl58etox" path="res://Game/Characters/Player/Cannon/Cannon.tscn" id="5_atgsc"]
 [ext_resource type="PackedScene" uid="uid://cp7gdwwgbal8h" path="res://Game/Characters/Components/Damages/Damages.tscn" id="6_vmmx6"]
+[ext_resource type="PackedScene" uid="uid://cl1jd3pd7j4l4" path="res://Game/Characters/Components/Speed/Speed.tscn" id="7_fq2nk"]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("movement") groups=["Player", "Targetable"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_lfapk")
 movement = NodePath("Movement")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-28, -29, 30, 0, -28, 29)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_r2kfm")
+
+[node name="Hitbox" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-28, -29, 30, 0, -28, 29)
 
 [node name="Health" parent="." instance=ExtResource("2_funxt")]
 position = Vector2(-11.3907, -25.4495)
@@ -31,6 +34,9 @@ Speed = 200.0
 
 [node name="Damages" parent="." instance=ExtResource("6_vmmx6")]
 Damage = 35.0
+
+[node name="Speed" parent="." instance=ExtResource("7_fq2nk")]
+MoveSpeed = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0

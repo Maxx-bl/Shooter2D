@@ -3,7 +3,12 @@ using System;
 
 public partial class Movement : Node2D
 {
-	[Export] public float Speed { get; set; }
+	public float Speed { get; set; }
+
+    public override void _Ready()
+    {
+        Speed = GetParent().GetNode<Speed>("Speed").MoveSpeed;
+    }
 
     public Vector2 GetInput()
     {
