@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkdm5okgwifnt"
-path="res://.godot/imported/player.png-5fe826d179e8297c657fd07c30124f2f.ctex"
+uid="uid://bj3xjsl1qcqt2"
+path="res://.godot/imported/objects.png-d85a99ea76a84443161ab6c2f132bb59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/player.png"
-dest_files=["res://.godot/imported/player.png-5fe826d179e8297c657fd07c30124f2f.ctex"]
+source_file="res://Assets/mystic_woods_free_2.2/sprites/objects/objects.png"
+dest_files=["res://.godot/imported/objects.png-d85a99ea76a84443161ab6c2f132bb59.ctex"]
 
 [params]
 

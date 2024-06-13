@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://djitgje1ocape"]
 
 [ext_resource type="Script" path="res://Game/Characters/Player/Player.cs" id="1_lfapk"]
-[ext_resource type="Texture2D" uid="uid://bkdm5okgwifnt" path="res://Assets/player.png" id="1_r2kfm"]
+[ext_resource type="Texture2D" uid="uid://bkdm5okgwifnt" path="res://Assets/Entities/player.png" id="1_r2kfm"]
 [ext_resource type="PackedScene" uid="uid://sfxq7ujdaido" path="res://Game/Characters/Components/Health/Health.tscn" id="2_funxt"]
 [ext_resource type="PackedScene" uid="uid://hm4kavcgdcv" path="res://Game/Characters/Player/Movement/Movement.tscn" id="3_585ko"]
 [ext_resource type="PackedScene" uid="uid://b7hiysl58etox" path="res://Game/Characters/Player/Cannon/Cannon.tscn" id="5_atgsc"]

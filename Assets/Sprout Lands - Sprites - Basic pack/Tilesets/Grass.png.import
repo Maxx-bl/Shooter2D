@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbukrvtt2ec8d"
-path="res://.godot/imported/Medieval_props_free.png-d1d3c695a85a72791c62ef75ee79f601.ctex"
+uid="uid://cb6w5akfsmdc8"
+path="res://.godot/imported/Grass.png-fe58591a97e547384a831c8ecb9a5901.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TileSet/Medieval_props_free.png"
-dest_files=["res://.godot/imported/Medieval_props_free.png-d1d3c695a85a72791c62ef75ee79f601.ctex"]
+source_file="res://Assets/Sprout Lands - Sprites - Basic pack/Tilesets/Grass.png"
+dest_files=["res://.godot/imported/Grass.png-fe58591a97e547384a831c8ecb9a5901.ctex"]
 
 [params]
 

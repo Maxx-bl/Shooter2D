@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dckfcvak06uyn"
-path="res://.godot/imported/Bot.png-60776cb0c69c29064837d7addf651184.ctex"
+uid="uid://fspwtceq380e"
+path="res://.godot/imported/decor_8x8.png-9c53938a71eba8fbe9db80b6e80dcad4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Bot.png"
-dest_files=["res://.godot/imported/Bot.png-60776cb0c69c29064837d7addf651184.ctex"]
+source_file="res://Assets/mystic_woods_free_2.2/sprites/tilesets/decor_8x8.png"
+dest_files=["res://.godot/imported/decor_8x8.png-9c53938a71eba8fbe9db80b6e80dcad4.ctex"]
 
 [params]
 

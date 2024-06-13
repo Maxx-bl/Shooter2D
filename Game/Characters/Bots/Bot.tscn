@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bm1sbyew8yky7"]
 
 [ext_resource type="Script" path="res://Game/Characters/Bots/Bot.cs" id="1_5bbu7"]
-[ext_resource type="Texture2D" uid="uid://dckfcvak06uyn" path="res://Assets/Bot.png" id="1_wwdud"]
+[ext_resource type="Texture2D" uid="uid://dckfcvak06uyn" path="res://Assets/Entities/Bot.png" id="1_wwdud"]
 [ext_resource type="PackedScene" uid="uid://sfxq7ujdaido" path="res://Game/Characters/Components/Health/Health.tscn" id="2_6d0t2"]
 [ext_resource type="PackedScene" uid="uid://cp7gdwwgbal8h" path="res://Game/Characters/Components/Damages/Damages.tscn" id="4_2wk2s"]
 [ext_resource type="PackedScene" uid="uid://cl1jd3pd7j4l4" path="res://Game/Characters/Components/Speed/Speed.tscn" id="5_fj48p"]

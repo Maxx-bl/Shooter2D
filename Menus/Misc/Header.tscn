@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://dskwl12bwveq5"]
+
+[ext_resource type="PackedScene" uid="uid://c2m5cyekkqmik" path="res://Menus/Misc/Button.tscn" id="1_xu03j"]
+
+[node name="Header" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.25
+grow_horizontal = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Play" parent="Panel/MarginContainer/HBoxContainer" instance=ExtResource("1_xu03j")]
+layout_mode = 2
+
+[node name="Space" type="Control" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Character" parent="Panel/MarginContainer/HBoxContainer" instance=ExtResource("1_xu03j")]
+layout_mode = 2
+
+[node name="Space2" type="Control" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Options" parent="Panel/MarginContainer/HBoxContainer" instance=ExtResource("1_xu03j")]
+layout_mode = 2
